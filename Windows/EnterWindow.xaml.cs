@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClothingStore_ISP9_13.Classes;
 using ClothingStore_ISP9_13.BD;
+using ClothingStore_ISP9_13.Windows;
 
 namespace ClothingStore_ISP9_13.Windows
 {
@@ -28,9 +29,24 @@ namespace ClothingStore_ISP9_13.Windows
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            var AuthUser = EFClass.Context.User.ToList();
+            var AuthUser = EFClass.Context.User.ToList()
+                .Where(i => i.Login == tbLogin.Text && i.Password == pbPass.Password).FirstOrDefault();
+            if (AuthUser != null)
+            {
+                MessageBox.Show("Вы успешно авторизовались");
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден!");
+            }
 
 
+        }
+
+        private void btnReg_Click(object sender, RoutedEventArgs e)
+        {
+           
+            this.Close();
         }
     }
 }

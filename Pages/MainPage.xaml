@@ -22,11 +22,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Text="- Списоk товаров -"
-            FontSize="25"
+            Text="~ Список товаров ~"
+            FontSize="36"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Height="70"/>
+            Height="70" FontFamily="Sitka Banner"/>
 
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button x:Name="btn_Enter" 

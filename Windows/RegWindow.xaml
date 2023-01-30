@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClothingStore_ISP9_13.Windows"
         mc:Ignorable="d"
-        Title="RegWindow" Height="720" Width="400"
-        WindowStartupLocation="CenterScreen">
+        Title="RegWindow" Height="720" Width="420"
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -67,12 +67,25 @@
                 <TextBlock Width="100" Height="30" 
                            Text="Почта" Margin="10, 30"/>
             </WrapPanel>
-            <Button x:Name="btnEnter"
+
+            <TextBlock 
+                Text="*- поле обязательно для заполнения"
+                HorizontalAlignment="Left"
+                Margin="10, 0"/>
+
+            <Button x:Name="btnReg"
                 Width="120"
                 Height="30"
                 Content="Зарегистрироваться" 
                 Background="#FFD4BCA5" 
-                 />
+                Margin="10"/>
+
+            <Button x:Name="btnEnter"
+                Width="150"
+                Height="30"
+                Content="Уже зарегистрированы?" 
+                Background="{x:Null}"
+                Click="btnEnter_Click" />
 
         </StackPanel>
     </Grid>

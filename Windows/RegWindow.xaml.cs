@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClothingStore_ISP9_13.Classes;
+using ClothingStore_ISP9_13.Windows;
 
 namespace ClothingStore_ISP9_13.Windows
 {
@@ -22,6 +24,11 @@ namespace ClothingStore_ISP9_13.Windows
         public RegWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnEnter_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
