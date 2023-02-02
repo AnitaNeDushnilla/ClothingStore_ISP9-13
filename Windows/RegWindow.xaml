@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClothingStore_ISP9_13.Windows"
         mc:Ignorable="d"
-        Title="RegWindow" Height="720" Width="420"
+        Title="RegWindow" Height="820" Width="420"
         WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.Background>
@@ -25,47 +25,99 @@
                 <TextBox x:Name="tbLogin"
                     Width="250" 
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="10, 30, 0, 10"
+                    FontSize="18"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Логин*" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Логин*" 
+                           Margin="10, 30, 0, 10"
+                           FontSize="15"/>
 
                 <PasswordBox x:Name="pbPass"
                     Width="250" 
-                             Height="30"
-                    Margin="10, 30"/>
+                    Height="30"
+                    Margin="10, 10, 0, 10"
+                    FontSize="15"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Пароль*" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Пароль*" 
+                           Margin="10, 10, 0, 10"
+                           FontSize="15"/>
 
                 <TextBox x:Name="tbFirstName"
                     Width="250" 
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="10, 10, 0, 10"
+                    FontSize="15"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Ваше имя*" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Ваше имя*" 
+                           Margin="10, 10, 0, 10"
+                           FontSize="15"/>
                 <TextBox x:Name="tbLastName"
                     Width="250" 
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="10, 10, 0, 10"
+                    FontSize="15"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Ваша фамилия*" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Ваша фамилия*" 
+                           Margin="10, 10, 0, 10"
+                           FontSize="15"/>
+                
                 <TextBox x:Name="tbPhone"
                     Width="250"
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="10, 10, 0, 10"
+                    FontSize="15"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Телефон*" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Телефон*" 
+                           Margin="10, 10, 0, 10"
+                           FontSize="15"/>
+                
                 <TextBox x:Name="tbEmail"
                     Width="250"
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="10, 10, 0, 10"
+                    FontSize="15"/>
 
-                <TextBlock Width="100" Height="30" 
-                           Text="Почта" Margin="10, 30"/>
+                <TextBlock Width="100" 
+                           Height="30" 
+                           Text="Почта" 
+                           Margin="10, 10, 0, 10"
+                           FontSize="15"/>
+
+                <DatePicker x:Name="dpBirthday"
+                    Height="30" 
+                    Width="180"
+                    Margin="50, 10, 0, 10"
+                    FontSize="15"/>
+                
+                <TextBlock Width="120" 
+                           Height="30" 
+                           FontSize="15"
+                           Text="Дата рождения" 
+                           Margin="40, 10, 0, 10"/>
+                <ComboBox x:Name="cmbGender"
+                     Height="50" 
+                     Width="60"
+                     FontSize="15"
+                     Margin="50, 10, 0, 30"
+                    />
+
+                <TextBlock Width="100" 
+                           Height="30" 
+                           FontSize="15"
+                           Text="Пол" 
+                           Margin="160, 10, 0, 30"
+                           />
+
             </WrapPanel>
 
             <TextBlock 
@@ -74,11 +126,12 @@
                 Margin="10, 0"/>
 
             <Button x:Name="btnReg"
-                Width="120"
+                Width="180"
                 Height="30"
+                FontSize="18"
                 Content="Зарегистрироваться" 
                 Background="#FFD4BCA5" 
-                Margin="10"/>
+                Margin="30" Click="btnReg_Click"/>
 
             <Button x:Name="btnEnter"
                 Width="150"
@@ -86,6 +139,8 @@
                 Content="Уже зарегистрированы?" 
                 Background="{x:Null}"
                 Click="btnEnter_Click" />
+
+            
 
         </StackPanel>
     </Grid>

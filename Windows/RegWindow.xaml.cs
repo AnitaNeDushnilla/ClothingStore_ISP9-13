@@ -29,6 +29,14 @@ namespace ClothingStore_ISP9_13.Windows
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
+        }
+
+        private void btnReg_Click(object sender, RoutedEventArgs e)
+        {
+            cmbGender.ItemsSource = EFClass.Context.Gender.ToList();
+            cmbGender.SelectedIndex = 0;
+            cmbGender.DisplayMemberPath = "GenderName";
         }
     }
 }

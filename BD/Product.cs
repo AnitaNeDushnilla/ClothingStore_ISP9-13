@@ -31,7 +31,6 @@ namespace ClothingStore_ISP9_13.BD
         public int IdGender { get; set; }
     
         public virtual Color Color { get; set; }
-        public virtual Gender Gender { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
