@@ -10,10 +10,13 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFDCD2BA" Offset="0"/>
-                <GradientStop Color="#FFE3D6CC" Offset="0.69"/>
+                <GradientStop Color="#FFFBDECA" Offset="0"/>
+                <GradientStop Color="#FFECD7C7" Offset="0.5"/>
+                <GradientStop Color="#FFFBDECA" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Border BorderBrush="#FFFEEBD9" 
+                BorderThickness="30"/>
         <StackPanel>
             <TextBlock x:Name="textBlock" 
                    HorizontalAlignment="Center"            
@@ -23,34 +26,35 @@
                    FontFamily="Yu Gothic UI Semilight"
                    />
             <WrapPanel>
+
                 <TextBox x:Name="tbLogin"
-                    Width="250" 
+                    Width="200" 
                     Height="30"
-                    Margin="10, 30"/>
+                    Margin="40, 30"/>
 
                 <TextBlock 
                     Width="100" 
                     Height="30" 
-                    Margin="10, 30"       
+                    Margin="-30"       
                     Text="Логин*"/>
 
                 <PasswordBox x:Name="pbPass"
-                    Width="250" 
+                    Width="200" 
                     Height="30"            
-                    Margin="10, 30"/>
+                   Margin="40, 30"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Пароль*" 
-                           Margin="10, 30"/>
+                           Margin="-30"/>
             </WrapPanel>
             <Button x:Name="btnEnter"
                 Width="100"
                 Height="30"
                 Content="Войти" 
-                Background="#FFD4BCA5" 
+                Background="#FFC6AEA4" 
                 Margin="10"
-                Click="btnEnter_Click" />
+                Click="btnEnter_Click" BorderBrush="{x:Null}" FontFamily="Sitka Text" FontSize="16" />
 
             <Button x:Name="btnReg"
                 Width="150"
@@ -60,7 +64,7 @@
                 Click="btnReg_Click" />
 
         </StackPanel>
-        
+
 
     </Grid>
 </Window>
