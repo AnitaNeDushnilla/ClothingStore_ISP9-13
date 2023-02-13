@@ -99,6 +99,11 @@ namespace ClothingStore_ISP9_13.Windows
                 MessageBox.Show("Неверный формат Email", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (!dpBirthday.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Не введена дата рождения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             EFClass.Context.User.Add(new User()
             {
@@ -110,12 +115,13 @@ namespace ClothingStore_ISP9_13.Windows
                 Phone = tbPhone.Text,
                 Birthday = dpBirthday.SelectedDate.Value,
                 IdGender = (cmbGender.SelectedItem as Gender).Id,
+                IdRole = 3
 
             });
 
             EFClass.Context.SaveChanges();
 
-            MessageBox.Show("Ok");
+            MessageBox.Show("Вы успешно зарегистрировались!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
