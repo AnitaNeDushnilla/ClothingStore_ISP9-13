@@ -10,16 +10,20 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFDCD2BA" Offset="0"/>
-                <GradientStop Color="#FFE3D6CC" Offset="0.69"/>
+                <GradientStop Color="#FFFBDECA" Offset="0"/>
+                <GradientStop Color="#FFECD7C7" Offset="0.5"/>
+                <GradientStop Color="#FFFBDECA" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Border BorderBrush="#FFFEEBD9" 
+                BorderThickness="10, 30"/>
         <StackPanel>
             <TextBlock x:Name="textBlock" 
                    HorizontalAlignment="Center"            
                    TextWrapping="Wrap" 
                    Text="Регистрация" 
-                   FontSize="25"
+                    FontSize="25" Foreground="Black" 
+                   FontFamily="Yu Gothic UI Semilight"
                    />
             <WrapPanel>
                 <TextBox x:Name="tbLogin"
@@ -96,7 +100,7 @@
                 <DatePicker x:Name="dpBirthday"
                     Height="30" 
                     Width="180"
-                    Margin="50, 10, 0, 10"
+                    Margin="10, 10, 0, 10"
                     FontSize="15"/>
                 
                 <TextBlock Width="120" 
@@ -104,18 +108,19 @@
                            FontSize="15"
                            Text="Дата рождения" 
                            Margin="40, 10, 0, 10"/>
+                
                 <ComboBox x:Name="cmbGender"
-                     Height="50" 
-                     Width="60"
+                     Height="40" 
+                     Width="120"
                      FontSize="15"
-                     Margin="50, 10, 0, 30"
+                     Margin="20, 10, 0, 30"
                     />
 
                 <TextBlock Width="100" 
                            Height="30" 
                            FontSize="15"
                            Text="Пол" 
-                           Margin="160, 10, 0, 30"
+                           Margin="30, 10, 0, 30"
                            />
 
             </WrapPanel>
@@ -128,10 +133,11 @@
             <Button x:Name="btnReg"
                 Width="180"
                 Height="30"
-                FontSize="18"
+                BorderBrush="{x:Null}" FontFamily="Sitka Text" FontSize="16" 
                 Content="Зарегистрироваться" 
-                Background="#FFD4BCA5" 
-                Margin="30" Click="btnReg_Click"/>
+                Background="#FFC6AEA4" 
+                Margin="30"
+                    Click="btnReg_Click"/>
 
             <Button x:Name="btnEnter"
                 Width="150"

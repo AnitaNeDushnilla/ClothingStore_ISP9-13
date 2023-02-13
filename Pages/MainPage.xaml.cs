@@ -32,12 +32,15 @@ namespace ClothingStore_ISP9_13.Pages
         {
             EnterWindow enterWindow = new EnterWindow();
             enterWindow.Show();
+            //btn_Enter.IsEnabled = false;
         }
 
         private void btn_Reg_Click(object sender, RoutedEventArgs e)
         {
             RegWindow regWindow = new RegWindow();
             regWindow.Show();
+            //btn_Reg.IsEnabled = false;
+
         }
     }
 }

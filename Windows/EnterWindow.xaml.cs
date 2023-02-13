@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using ClothingStore_ISP9_13.Classes;
 using ClothingStore_ISP9_13.BD;
 using ClothingStore_ISP9_13.Windows;
+using System.Net.Mail;
+using ClothingStore_ISP9_13.Pages;
 
 namespace ClothingStore_ISP9_13.Windows
 {
@@ -34,6 +36,7 @@ namespace ClothingStore_ISP9_13.Windows
             if (AuthUser != null)
             {
                 MessageBox.Show("Вы успешно авторизовались");
+                this.Close();
             }
             else
             {
@@ -45,8 +48,11 @@ namespace ClothingStore_ISP9_13.Windows
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
-           
+            RegWindow regWindow = new RegWindow();
+            regWindow.Show();
             this.Close();
+            
+
         }
     }
 }
