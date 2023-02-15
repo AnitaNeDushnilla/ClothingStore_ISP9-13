@@ -7,137 +7,143 @@
         mc:Ignorable="d"
         Title="RegWindow" Height="820" Width="420"
         WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFBDECA" Offset="0"/>
-                <GradientStop Color="#FFECD7C7" Offset="0.5"/>
-                <GradientStop Color="#FFFBDECA" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Border BorderBrush="#FFFEEBD9" 
-                BorderThickness="10, 30"/>
+    <Grid Background="#d1f1e4">
+
+        <Border BorderBrush="#75aeaa" 
+        BorderThickness="15, 35.5"/>
         <StackPanel>
             <TextBlock x:Name="textBlock" 
-                   HorizontalAlignment="Center"            
+                   HorizontalAlignment="Center"  
+                   VerticalAlignment="Top"
                    TextWrapping="Wrap" 
-                   Text="Регистрация" 
-                    FontSize="25" Foreground="Black" 
-                   FontFamily="Yu Gothic UI Semilight"
+                   Text="~ Регистрация ~" 
+                    FontSize="24" Foreground="White" 
+                   FontFamily="Segoe Print" 
+                   FontStyle="Italic" 
                    />
             <WrapPanel>
                 <TextBox x:Name="tbLogin"
                     Width="250" 
                     Height="30"
-                    Margin="10, 30, 0, 10"
+                    Margin="25, 30, 0, 10"
                     FontSize="18"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Логин*" 
                            Margin="10, 30, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
 
                 <PasswordBox x:Name="pbPass"
                     Width="250" 
                     Height="30"
-                    Margin="10, 10, 0, 10"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Пароль*" 
                            Margin="10, 10, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
 
                 <TextBox x:Name="tbFirstName"
                     Width="250" 
                     Height="30"
-                    Margin="10, 10, 0, 10"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Ваше имя*" 
                            Margin="10, 10, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+                
                 <TextBox x:Name="tbLastName"
                     Width="250" 
                     Height="30"
-                    Margin="10, 10, 0, 10"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
 
-                <TextBlock Width="100" 
+                <TextBlock Width="120" 
                            Height="30" 
                            Text="Ваша фамилия*" 
                            Margin="10, 10, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
                 
                 <TextBox x:Name="tbPhone"
                     Width="250"
                     Height="30"
-                    Margin="10, 10, 0, 10"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Телефон*" 
                            Margin="10, 10, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
                 
                 <TextBox x:Name="tbEmail"
                     Width="250"
                     Height="30"
-                    Margin="10, 10, 0, 10"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
 
                 <TextBlock Width="100" 
                            Height="30" 
                            Text="Почта" 
                            Margin="10, 10, 0, 10"
-                           FontSize="15"/>
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
 
                 <DatePicker x:Name="dpBirthday"
-                    Height="30" 
-                    Width="180"
-                    Margin="10, 10, 0, 10"
+                    Width="250"
+                    Height="30"
+                    Margin="25, 10, 0, 10"
                     FontSize="15"/>
                 
                 <TextBlock Width="120" 
                            Height="30" 
                            FontSize="15"
                            Text="Дата рождения" 
-                           Margin="40, 10, 0, 10"/>
+                           Margin="10, 10, 0, 10"
+                           FontFamily="Sitka Text"/>
                 
                 <ComboBox x:Name="cmbGender"
                      Height="40" 
                      Width="120"
                      FontSize="15"
-                     Margin="20, 10, 0, 30"
+                     Margin="100, 10, 0, 30"
                     />
 
                 <TextBlock Width="100" 
                            Height="30" 
                            FontSize="15"
                            Text="Пол" 
-                           Margin="30, 10, 0, 30"
-                           />
+                           Margin="10, 10, 0, 30"
+                           FontFamily="Sitka Text"/>
 
             </WrapPanel>
 
             <TextBlock 
                 Text="*- поле обязательно для заполнения"
                 HorizontalAlignment="Left"
-                Margin="10, 0"/>
+                Margin="25, 0"/>
 
             <Button x:Name="btnReg"
                 Width="180"
                 Height="30"
-                BorderBrush="{x:Null}" FontFamily="Sitka Text" FontSize="16" 
+                BorderBrush="{x:Null}" 
+                FontFamily="Sitka Text" 
+                FontSize="16" 
                 Content="Зарегистрироваться" 
-                Background="#FFC6AEA4" 
+                Background="#edead0" 
                 Margin="30"
-                    Click="btnReg_Click"/>
+                Click="btnReg_Click"/>
 
             <Button x:Name="btnEnter"
                 Width="150"

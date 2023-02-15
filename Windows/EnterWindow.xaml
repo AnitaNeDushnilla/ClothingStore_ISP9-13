@@ -7,23 +7,21 @@
         mc:Ignorable="d"
         Title="EnterWindow" Height="720" Width="420"
         WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFBDECA" Offset="0"/>
-                <GradientStop Color="#FFECD7C7" Offset="0.5"/>
-                <GradientStop Color="#FFFBDECA" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Border BorderBrush="#FFFEEBD9" 
-                BorderThickness="30"/>
+    <Grid Background="#d1f1e4">
+
+        <Border BorderBrush="#75aeaa" 
+                BorderThickness="33"
+                />
         <StackPanel>
             <TextBlock x:Name="textBlock" 
-                   HorizontalAlignment="Center"            
+                   HorizontalAlignment="Center"  
+                   VerticalAlignment="Top"
                    TextWrapping="Wrap" 
-                   Text="Вход" 
-                   FontSize="25" Foreground="Black" 
-                   FontFamily="Yu Gothic UI Semilight"
+                   Height="50"
+                   Text="~ Вход ~" 
+                   FontSize="24" Foreground="White" 
+                   FontFamily="Segoe Print" 
+                   FontStyle="Italic" 
                    />
             <WrapPanel>
 
@@ -35,8 +33,10 @@
                 <TextBlock 
                     Width="100" 
                     Height="30" 
-                    Margin="-30"       
-                    Text="Логин*"/>
+                    Margin="-30"   
+                    FontSize="18"
+                    Text="Логин*" 
+                    FontFamily="Sitka Text"/>
 
                 <PasswordBox x:Name="pbPass"
                     Width="200" 
@@ -44,23 +44,30 @@
                    Margin="40, 30"/>
 
                 <TextBlock Width="100" 
+                           FontSize="18"
                            Height="30" 
                            Text="Пароль*" 
-                           Margin="-30"/>
+                           Margin="-30"
+                           FontFamily="Sitka Text"/>
             </WrapPanel>
             <Button x:Name="btnEnter"
                 Width="100"
                 Height="30"
                 Content="Войти" 
-                Background="#FFC6AEA4" 
+                Background="#edead0" 
                 Margin="10"
-                Click="btnEnter_Click" BorderBrush="{x:Null}" FontFamily="Sitka Text" FontSize="16" />
+                Click="btnEnter_Click" 
+                BorderBrush="{x:Null}" 
+                FontFamily="Sitka Text" 
+                FontSize="20" />
 
             <Button x:Name="btnReg"
-                Width="150"
+                Width="170"
                 Height="30"
                 Content="Не зарегистрированы?" 
                 Background="{x:Null}"
+                FontSize="14"
+                FontFamily="Sitka Text"
                 Click="btnReg_Click" />
 
         </StackPanel>
