@@ -56,13 +56,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Articul" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IdManufacturer" Type="int" Nullable="false" />
           <Property Name="IdSize" Type="int" Nullable="false" />
           <Property Name="IdColor" Type="int" Nullable="false" />
-          <Property Name="IdGender" Type="int" Nullable="false" />
+          <Property Name="IdGender" Type="int" />
         </EntityType>
         <EntityType Name="ProductSale">
           <Key>
@@ -167,6 +168,18 @@
             </Principal>
             <Dependent Role="Product">
               <PropertyRef Name="IdColor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IdGender" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -327,6 +340,10 @@
             <End Role="Color" EntitySet="Color" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_Gender" Association="Self.FK_Product_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
             <End Role="Manufacturer" EntitySet="Manufacturer" />
             <End Role="Product" EntitySet="Product" />
@@ -456,6 +473,10 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_Gender" Association="Model.FK_Product_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -511,6 +532,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GenderName" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Model.FK_User_Gender" FromRole="Gender" ToRole="User" />
+          <NavigationProperty Name="Product" Relationship="Model.FK_Product_Gender" FromRole="Gender" ToRole="Product" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -528,18 +550,20 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Articul" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IdManufacturer" Type="Int32" Nullable="false" />
           <Property Name="IdSize" Type="Int32" Nullable="false" />
           <Property Name="IdColor" Type="Int32" Nullable="false" />
-          <Property Name="IdGender" Type="Int32" Nullable="false" />
+          <Property Name="IdGender" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Color" Relationship="Model.FK_Product_Color" FromRole="Product" ToRole="Color" />
           <NavigationProperty Name="Manufacturer" Relationship="Model.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
           <NavigationProperty Name="Size" Relationship="Model.FK_Product_Size" FromRole="Product" ToRole="Size" />
           <NavigationProperty Name="ProductSale" Relationship="Model.FK_ProductSale_Product" FromRole="Product" ToRole="ProductSale" />
           <NavigationProperty Name="Storage" Relationship="Model.FK_Storage_Product" FromRole="Product" ToRole="Storage" />
+          <NavigationProperty Name="Gender" Relationship="Model.FK_Product_Gender" FromRole="Product" ToRole="Gender" />
         </EntityType>
         <EntityType Name="ProductSale">
           <Key>
@@ -753,6 +777,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Gender">
+          <End Type="Model.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -838,13 +874,14 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="Model.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="IdColor" ColumnName="IdColor" />
                 <ScalarProperty Name="IdSize" ColumnName="IdSize" />
                 <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Articul" ColumnName="Articul" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
