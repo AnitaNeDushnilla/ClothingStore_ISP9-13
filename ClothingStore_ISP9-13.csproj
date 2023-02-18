@@ -128,23 +128,14 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddEmployeeWindow.xaml.cs">
-      <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddProductWindow.xaml.cs">
-      <DependentUpon>AddProductWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AddEditProductWindow.xaml.cs">
+      <DependentUpon>AddEditProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DeleteEmployeeWindow.xaml.cs">
       <DependentUpon>DeleteEmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DeleteProductWindow.xaml.cs">
       <DependentUpon>DeleteProductWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\EditEmployeeWindow.xaml.cs">
-      <DependentUpon>EditEmployeeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\EditProductWindow.xaml.cs">
-      <DependentUpon>EditProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
@@ -153,11 +144,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AddEmployeeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AddProductWindow.xaml">
+    <Page Include="Windows\AddEditProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,14 +153,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DeleteProductWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\EditEmployeeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\EditProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

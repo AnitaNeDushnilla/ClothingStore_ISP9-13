@@ -41,7 +41,7 @@ namespace ClothingStore_ISP9_13.Windows
         {
             if (string.IsNullOrWhiteSpace(tbLogin.Text))
             {
-                MessageBox.Show("Поле Login не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Поле Логин не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

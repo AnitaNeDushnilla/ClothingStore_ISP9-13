@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClothingStore_ISP9_13.BD;
 
 namespace ClothingStore_ISP9_13.Pages
 {
@@ -25,7 +26,15 @@ namespace ClothingStore_ISP9_13.Pages
         {
             InitializeComponent();
 
-            
+            ListProduct();
+        }
+
+        private void ListProduct()
+        {
+            List<Product> products = new List<Product>();
+            products = Classes.EFClass.Context.Product.ToList();
+
+            LvProduct.ItemsSource = products;
         }
 
         private void btn_Enter_Click(object sender, RoutedEventArgs e)
@@ -41,6 +50,14 @@ namespace ClothingStore_ISP9_13.Pages
             regWindow.Show();
             //btn_Reg.IsEnabled = false;
 
+        }
+
+        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditProductWindow addEditProduct = new AddEditProductWindow();
+            addEditProduct.ShowDialog();
+
+            ListProduct();
         }
     }
 }

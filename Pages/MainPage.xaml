@@ -89,7 +89,7 @@
                                    Source="C:\Users\IMac5\source\repos\ClothingStore_ISP9-13\Res\tshirt1.jpg"/>
                             <TextBlock Text="{Binding Name}"
                                        Margin="5 0 0 0"/>
-                            <TextBlock Text="{Binding Price}"
+                            <TextBlock Text="{Binding Cost}"
                                        FontWeight="Bold"
                                        Margin="5 0 0 0"/>
                         </StackPanel>
@@ -97,6 +97,18 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button x:Name="btnAddProduct"
+                Content="+"
+                FontSize="35"
+                Height="50"
+                Width="50"
+                Grid.Row="3" 
+                Background="#FF75AEAA" 
+                Foreground="White" 
+                FontFamily="Bahnschrift Light"
+                Click="btnAddProduct_Click"
+            />
 
     </Grid>
 </Page>
