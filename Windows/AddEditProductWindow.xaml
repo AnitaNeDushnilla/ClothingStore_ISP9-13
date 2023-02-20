@@ -22,6 +22,30 @@
                    FontStyle="Italic" 
                    />
             <WrapPanel>
+                <Border BorderThickness="1"
+                        Width="100"  
+                        HorizontalAlignment="Center"
+                        Height="100"
+                        BorderBrush="Black"
+                        Margin="150, 0">
+                    <Image x:Name="imgPhoto"                      
+                       Height="100"
+                       Width="100"     
+                       />
+                </Border>
+
+
+                <Button x:Name="btnAddImage"
+                           Width="140" 
+                           Height="30" 
+                           Content="Вставьте Фото" 
+                           Background="#FF75AEAA" 
+                           Foreground="White" 
+                           Margin="130,0"
+                           FontSize="15"
+                           FontFamily="Sitka Text"
+                           Click="btnAddImage_Click"/>
+
                 <TextBox x:Name="tbName"
                     Width="200" 
                     Height="30"
@@ -35,7 +59,7 @@
                            FontSize="15"
                            FontFamily="Sitka Text"/>
 
-                <PasswordBox x:Name="pbPass"
+                <TextBox x:Name="tbQuantity"
                     Width="200" 
                     Height="30"
                     Margin="25, 10, 0, 10"
@@ -48,7 +72,7 @@
                            FontSize="15"
                            FontFamily="Sitka Text"/>
 
-                <TextBox x:Name="tbFirstName"
+                <TextBox x:Name="tbCost"
                     Width="200" 
                     Height="30"
                     Margin="25, 10, 0, 10"

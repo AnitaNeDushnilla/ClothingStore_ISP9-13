@@ -86,7 +86,7 @@
                         <StackPanel>
                             <Image Height="180"
                                    Width="150"
-                                   Source="C:\Users\IMac5\source\repos\ClothingStore_ISP9-13\Res\tshirt1.jpg"/>
+                                   Source = "{Binding Image}" />
                             <TextBlock Text="{Binding Name}"
                                        Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding Cost}"

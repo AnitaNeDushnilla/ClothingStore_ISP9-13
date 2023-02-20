@@ -10,10 +10,12 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.IO;
 using System.Windows.Shapes;
 using ClothingStore_ISP9_13.BD;
 using ClothingStore_ISP9_13.Windows;
 using ClothingStore_ISP9_13.Classes;
+using Microsoft.Win32;
 
 namespace ClothingStore_ISP9_13.Windows
 {
@@ -34,14 +36,40 @@ namespace ClothingStore_ISP9_13.Windows
             cmbManufacturer.SelectedIndex = 0;
             cmbManufacturer.DisplayMemberPath = "Name";
 
-            cmbSize.ItemsSource = EFClass.Context.Manufacturer.ToList();
+            cmbSize.ItemsSource = EFClass.Context.Size.ToList();
             cmbSize.SelectedIndex = 0;
             cmbSize.DisplayMemberPath = "Size";
         }
+        private string pathImage = null;
+        private void btnAddImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                imgPhoto.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+
+                pathImage = openFileDialog.FileName;
+            }
+        }
+
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            Product product = new Product();
+            product.Name = tbName.Text;
+            product.Quantity = Convert.ToInt32(tbQuantity.Text);
+            product.Cost = Convert.ToDecimal(tbCost.Text);
+            product.IdManufacturer = (cmbManufacturer.SelectedItem as Manufacturer).Id;
+            if (pathImage != null)
+            {
+                product.Image = File.ReadAllBytes(pathImage);
+            }
 
+            EFClass.Context.Product.Add(product);
+            EFClass.Context.SaveChanges();
+
+            MessageBox.Show("Товар успешно добавлен");
+            this.Close();
         }
     }
 }
