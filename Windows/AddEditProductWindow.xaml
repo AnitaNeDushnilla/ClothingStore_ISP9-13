@@ -126,12 +126,21 @@
                            Text="Пол" 
                            Margin="10, 10, 0, 30"
                            FontFamily="Sitka Text"/>
-            </WrapPanel>
 
-            <TextBlock 
-                Text="*- поле обязательно для заполнения"
-                HorizontalAlignment="Left"
-                Margin="25, 0"/>
+                <ComboBox x:Name="cmbColor"
+                     Height="40" 
+                     Width="120"
+                     FontSize="15"
+                     Margin="100, 10, 0, 30"
+                    />
+
+                <TextBlock Width="100" 
+                           Height="30" 
+                           FontSize="15"
+                           Text="Цвет" 
+                           Margin="10, 10, 0, 30"
+                           FontFamily="Sitka Text"/>
+            </WrapPanel>
 
             <Button x:Name="btnAdd"
                 Width="180"

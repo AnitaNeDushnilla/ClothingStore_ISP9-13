@@ -59,5 +59,22 @@ namespace ClothingStore_ISP9_13.Pages
 
             ListProduct();
         }
+
+        private void BtnMore_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            AddEditProductWindow addEditProductWindow = new AddEditProductWindow(selectedProduct);
+            addEditProductWindow.ShowDialog();
+
+            ListProduct();
+
+        }
     }
 }

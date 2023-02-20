@@ -22,22 +22,22 @@ namespace ClothingStore_ISP9_13.BD
         }
     
         public int Id { get; set; }
+        public string Name { get; set; }
         public byte[] Image { get; set; }
         public int Quantity { get; set; }
         public decimal Cost { get; set; }
         public int IdManufacturer { get; set; }
         public int IdSize { get; set; }
-        public int IdColor { get; set; }
+        public Nullable<int> IdColor { get; set; }
         public Nullable<int> IdGender { get; set; }
-        public string Name { get; set; }
     
         public virtual Color Color { get; set; }
+        public virtual Gender Gender { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Storage> Storage { get; set; }
-        public virtual Gender Gender { get; set; }
     }
 }

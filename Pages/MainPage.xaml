@@ -11,7 +11,7 @@
     <Grid>
         <Grid.Background>
             <ImageBrush 
-                ImageSource="https://c4.wallpaperflare.com/wallpaper/35/124/49/digital-art-building-remko-heemskerk-clouds-wallpaper-preview.jpg" TileMode="FlipXY" 
+                ImageSource="/Pages/wallpaper.jpg"
                 
              />
         </Grid.Background>
@@ -92,6 +92,10 @@
                             <TextBlock Text="{Binding Cost}"
                                        FontWeight="Bold"
                                        Margin="5 0 0 0"/>
+                            <Button x:Name="BtnMore" 
+                                    Content="Подробнее"
+                                    Margin="10 10 10 0"
+                                   Click="BtnMore_Click"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
