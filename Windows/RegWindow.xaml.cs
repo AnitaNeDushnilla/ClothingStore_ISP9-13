@@ -114,8 +114,7 @@ namespace ClothingStore_ISP9_13.Windows
                 Email = tbEmail.Text,
                 Phone = tbPhone.Text,
                 Birthday = dpBirthday.SelectedDate.Value,
-                IdGender = (cmbGender.SelectedItem as Gender).Id,
-                IdRole = 3
+                IdGender = (cmbGender.SelectedItem as Gender).Id,    
 
             });
 

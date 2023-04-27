@@ -1,4 +1,5 @@
-﻿using ClothingStore_ISP9_13.Pages;
+﻿using ClothingStore_ISP9_13.BD;
+using ClothingStore_ISP9_13.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using static ClothingStore_ISP9_13.Classes.NavigationClass;
 namespace ClothingStore_ISP9_13
 {
     /// <summary>
@@ -26,6 +27,7 @@ namespace ClothingStore_ISP9_13
             InitializeComponent();
 
             mainFrame.Navigate(new MainPage());
+            MainFrame = mainFrame;
         }
 
 

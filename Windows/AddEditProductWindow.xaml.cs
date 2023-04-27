@@ -71,6 +71,7 @@ namespace ClothingStore_ISP9_13.Windows
 
             tbName.Text = product.Name;
             tbCost.Text = product.Cost.ToString();
+            tbQuantity.Text = product.Quantity.ToString();
             cmbManufacturer.SelectedItem = EFClass.Context.Manufacturer.ToList().Where(i => i.Id == product.IdManufacturer).FirstOrDefault();
             cmbGender.SelectedItem = EFClass.Context.Gender.ToList().Where(i => i.Id == product.IdGender).FirstOrDefault();
             cmbSize.SelectedItem = EFClass.Context.Size.ToList().Where(i => i.Id == product.IdSize).FirstOrDefault();

@@ -16,6 +16,8 @@ using ClothingStore_ISP9_13.BD;
 using ClothingStore_ISP9_13.Windows;
 using System.Net.Mail;
 using ClothingStore_ISP9_13.Pages;
+using static ClothingStore_ISP9_13.Classes.NavigationClass;
+
 
 namespace ClothingStore_ISP9_13.Windows
 {
@@ -33,10 +35,58 @@ namespace ClothingStore_ISP9_13.Windows
         {
             var AuthUser = EFClass.Context.User.ToList()
                 .Where(i => i.Login == tbLogin.Text && i.Password == pbPass.Password).FirstOrDefault();
+
+
             if (AuthUser != null)
             {
                 MessageBox.Show("Вы успешно авторизовались");
                 this.Close();
+
+                UserDataClass.User = AuthUser;
+                var AuthEmp = EFClass.Context.Employee.Where(i => i.IdUser == AuthUser.Id).FirstOrDefault();
+                if (AuthEmp != null)
+                {
+                    // если не пустой то Работник
+
+                    // сохранияем данные входа
+
+                    UserDataClass.Employee = AuthEmp;
+
+                    // проверка роли 
+
+                    switch (AuthEmp.IdRole)
+                    {
+                        case 1:
+                            // переход на страницу директора
+                            MainFrame.Navigate(new ProductPage());
+                            this.Close();
+                            break;
+
+                        case 2:
+                            // переход на страницу администратора
+                            break;
+                        case 3:
+                            // переход на страницу продавца
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                else
+                {
+                    // Client
+
+                    // сохраняем клиента
+                    UserDataClass.Client = AuthUser;
+
+
+                    MainFrame.Navigate(new ProductPage());
+                    this.Close();
+
+                }
+               
+
             }
             else
             {
@@ -52,7 +102,6 @@ namespace ClothingStore_ISP9_13.Windows
             regWindow.Show();
             this.Close();
             
-
         }
     }
 }

@@ -27,5 +27,10 @@ namespace ClothingStore_ISP9_13.BD
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }
+
+        public static implicit operator Client(User v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

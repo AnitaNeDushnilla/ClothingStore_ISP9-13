@@ -26,55 +26,18 @@ namespace ClothingStore_ISP9_13.Pages
         {
             InitializeComponent();
 
-            ListProduct();
-        }
-
-        private void ListProduct()
-        {
-            List<Product> products = new List<Product>();
-            products = Classes.EFClass.Context.Product.ToList();
-
-            LvProduct.ItemsSource = products;
         }
 
         private void btn_Enter_Click(object sender, RoutedEventArgs e)
         {
             EnterWindow enterWindow = new EnterWindow();
             enterWindow.Show();
-            //btn_Enter.IsEnabled = false;
         }
 
         private void btn_Reg_Click(object sender, RoutedEventArgs e)
         {
             RegWindow regWindow = new RegWindow();
             regWindow.Show();
-            //btn_Reg.IsEnabled = false;
-
-        }
-
-        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
-        {
-            AddEditProductWindow addEditProduct = new AddEditProductWindow();
-            addEditProduct.ShowDialog();
-
-            ListProduct();
-        }
-
-        private void BtnMore_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            if (button == null)
-            {
-                return;
-            }
-
-            Product selectedProduct = button.DataContext as Product;
-
-            AddEditProductWindow addEditProductWindow = new AddEditProductWindow(selectedProduct);
-            addEditProductWindow.ShowDialog();
-
-            ListProduct();
-
         }
     }
 }

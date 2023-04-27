@@ -7,21 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1200"
       Title="MainPage">
-
-    <Grid>
-        <Grid.Background>
-            <ImageBrush 
+    
+    
+    <Grid >
+        <Grid.Background >
+        <ImageBrush 
                 ImageSource="/Pages/wallpaper.jpg"
-                
+                Opacity="0.95"
              />
-        </Grid.Background>
-
-
+    </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
 
         <Label
@@ -34,85 +31,30 @@
             Foreground="#FFB73A3A" Width="120" 
             Grid.RowSpan="2"/>
 
-        <WrapPanel HorizontalAlignment="Right" 
-                   VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="btn_Enter" 
                 Content="Вход" 
-                Margin="10"
-                Width="75"
-                FontSize="24"    
+                Margin="40"
+                Width="175"
+                FontSize="50"    
                 Background="{x:Null}"
-                BorderBrush="{x:Null}" 
-                Click="btn_Enter_Click" 
+                BorderBrush="{x:Null}"     
                 FontFamily="Bahnschrift SemiBold" 
-                Foreground="White" />
+                Foreground="#FF064B4B"
+                Click="btn_Enter_Click"/>
 
             <Button x:Name="btn_Reg" 
                 Content="Регистрация" 
-                Margin="10"
-                Width="150" 
-                FontSize="24"    
+                Margin="40"
+                Width="350" 
+                FontSize="50"    
                 Background="{x:Null}" 
                 BorderBrush="{x:Null}" 
-                Click="btn_Reg_Click"
                 FontFamily="Bahnschrift SemiBold" 
-                Foreground="White"/>
-
-        </WrapPanel>
-
-
-        <ListView x:Name="LvProduct"
-                 d:ItemsSource="{d:SampleData ItemCount=20}"
-                  Grid.Row="2"
-                  Margin="30,0"
-                  VerticalAlignment="Top"
-                  Width="1140"
-                  Height="555"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-
-                    <Border BorderBrush="DarkGray"
-                            BorderThickness="2"
-                            Width="200"
-                            Height="250"
-                            Margin="5">
-                        <StackPanel>
-                            <Image Height="180"
-                                   Width="150"
-                                   Source = "{Binding Image}" />
-                            <TextBlock Text="{Binding Name}"
-                                       Margin="5 0 0 0"/>
-                            <TextBlock Text="{Binding Cost}"
-                                       FontWeight="Bold"
-                                       Margin="5 0 0 0"/>
-                            <Button x:Name="BtnMore" 
-                                    Content="Подробнее"
-                                    Margin="10 10 10 0"
-                                   Click="BtnMore_Click"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Button x:Name="btnAddProduct"
-                Content="+"
-                FontSize="35"
-                Height="50"
-                Width="50"
-                Grid.Row="3" 
-                Background="#FF75AEAA" 
-                Foreground="White" 
-                FontFamily="Bahnschrift Light"
-                Click="btnAddProduct_Click"
-            />
+                Foreground="#FF064B4B"
+                Click="btn_Reg_Click"/>
+        </StackPanel>
+        
 
     </Grid>
 </Page>

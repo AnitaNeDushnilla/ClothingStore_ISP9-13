@@ -26,7 +26,6 @@ namespace ClothingStore_ISP9_13.BD
         public string Password { get; set; }
         public string FirtsName { get; set; }
         public string LastName { get; set; }
-        public int IdRole { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public System.DateTime Birthday { get; set; }
@@ -37,6 +36,5 @@ namespace ClothingStore_ISP9_13.BD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
         public virtual Gender Gender { get; set; }
-        public virtual Role Role { get; set; }
     }
 }

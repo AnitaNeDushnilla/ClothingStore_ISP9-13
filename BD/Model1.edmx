@@ -30,9 +30,11 @@
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -117,7 +119,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirtsName" Type="nchar" MaxLength="20" Nullable="false" />
           <Property Name="LastName" Type="nchar" MaxLength="40" Nullable="false" />
-          <Property Name="IdRole" Type="int" Nullable="false" />
           <Property Name="Phone" Type="nchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Birthday" Type="date" Nullable="false" />
@@ -147,7 +148,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_User">
+        <Association Name="FK_Employee_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_User1">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -219,18 +232,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="IdEmployee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ProductSale_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
@@ -264,18 +265,6 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="IdGender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,7 +321,11 @@
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
+          <AssociationSet Name="FK_Employee_Role" Association="Self.FK_Employee_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_User1" Association="Self.FK_Employee_User1">
             <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
@@ -356,10 +349,6 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Employee" Association="Self.FK_ProductSale_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
-          </AssociationSet>
           <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductSale" EntitySet="ProductSale" />
@@ -370,10 +359,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -441,13 +426,13 @@
             <End Role="Color" EntitySet="Color" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_User" Association="Model.FK_Employee_User">
-            <End Role="User" EntitySet="User" />
+          <AssociationSet Name="FK_Employee_Role" Association="Model.FK_Employee_Role">
+            <End Role="Role" EntitySet="Role" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Employee" Association="Model.FK_ProductSale_Employee">
+          <AssociationSet Name="FK_Employee_User1" Association="Model.FK_Employee_User1">
+            <End Role="User" EntitySet="User" />
             <End Role="Employee" EntitySet="Employee" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Gender" Association="Model.FK_Product_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -472,10 +457,6 @@
           <AssociationSet Name="FK_Storage_Product" Association="Model.FK_Storage_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Storage" EntitySet="Storage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Model.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -519,11 +500,13 @@
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Model.FK_Employee_User" FromRole="Employee" ToRole="User" />
-          <NavigationProperty Name="ProductSale" Relationship="Model.FK_ProductSale_Employee" FromRole="Employee" ToRole="ProductSale" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Model.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
+          <NavigationProperty Name="User" Relationship="Model.FK_Employee_User1" FromRole="Employee" ToRole="User" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -575,7 +558,6 @@
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Client" Relationship="Model.FK_ProductSale_Client" FromRole="ProductSale" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="Model.FK_ProductSale_Employee" FromRole="ProductSale" ToRole="Employee" />
           <NavigationProperty Name="Product" Relationship="Model.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
         <EntityType Name="Role">
@@ -584,7 +566,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Model.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="Employee" Relationship="Model.FK_Employee_Role" FromRole="Role" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -623,15 +605,13 @@
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirtsName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Model.FK_Client_User" FromRole="User" ToRole="Client" />
-          <NavigationProperty Name="Employee" Relationship="Model.FK_Employee_User" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="Model.FK_Employee_User1" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="Gender" Relationship="Model.FK_User_Gender" FromRole="User" ToRole="Gender" />
-          <NavigationProperty Name="Role" Relationship="Model.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Client_BonusCard1">
           <End Type="Model.BonusCard" Role="BonusCard" Multiplicity="1" />
@@ -681,7 +661,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_User">
+        <Association Name="FK_Employee_Role">
+          <End Type="Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="Model.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_User1">
           <End Type="Model.User" Role="User" Multiplicity="1" />
           <End Type="Model.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -690,18 +682,6 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductSale_Employee">
-          <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
-          <End Type="Model.ProductSale" Role="ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="IdEmployee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -777,18 +757,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Role">
-          <End Type="Model.Role" Role="Role" Multiplicity="1" />
-          <End Type="Model.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="IdRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -847,6 +815,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -941,7 +910,6 @@
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirtsName" ColumnName="FirtsName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

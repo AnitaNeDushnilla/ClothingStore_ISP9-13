@@ -1,17 +1,133 @@
-﻿<Window x:Class="ClothingStore_ISP9_13.Windows.AddEmployeeWindow"
+﻿<Window x:Class="ClothingStore_ISP9_13.Windows.AddEditEmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClothingStore_ISP9_13.Windows"
         mc:Ignorable="d"
-        Title="AddEmployeeWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock
-            Text="Добавление сотрудника"
-            FontSize="25"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Height="70"/>
+        Title="AddEditEmployeeWindow" Height="820" Width="420"
+         WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+
+    <Grid Background="#d1f1e4">
+
+    <Border BorderBrush="#75aeaa" 
+        BorderThickness="15, 35.5"/>
+    <StackPanel>
+        <TextBlock x:Name="tbLabel" 
+                   HorizontalAlignment="Center"  
+                   VerticalAlignment="Top"
+                   TextWrapping="Wrap" 
+                   Text="~ Добавление сотрудника ~" 
+                    FontSize="24" Foreground="White" 
+                   FontFamily="Segoe Print" 
+                   FontStyle="Italic" 
+                   />
+            <WrapPanel>
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Фамилия" 
+                           Margin="20, 30, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+
+                <TextBox x:Name="tbLastName"
+                    Width="200" 
+                    Height="30"
+                    Margin="0, 30, 0, 10"
+                    FontSize="18"/>
+
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Имя" 
+                           Margin="20, 10, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+                
+                <TextBox x:Name="tbFirstName"
+                    Width="200" 
+                    Height="30"
+                    Margin="0, 10, 0, 10"
+                    FontSize="15"/>
+
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Логин" 
+                           Margin="20, 10, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+
+                <TextBox x:Name="tbLogin"
+                    Width="200" 
+                    Height="30"
+                    Margin="0, 10, 0, 10"
+                    FontSize="15"/>
+                
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Пароль" 
+                           Margin="20, 10, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+                
+                <PasswordBox x:Name="pbPass"
+                    Width="200" 
+                    Height="30"
+                    Margin="0, 10, 0, 10"
+                    FontSize="18"/>
+                
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Телефон" 
+                           Margin="20, 10, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+                <TextBox x:Name="tbPhone"
+                    Width="200" 
+                    Height="30"
+                    Margin="0, 10, 0, 10"
+                    FontSize="18"/>
+
+                <TextBlock Width="150" 
+                           Height="30" 
+                           Text="Дата Рождения" 
+                           Margin="20, 10, 0, 10"
+                           FontSize="15"
+                           FontFamily="Sitka Text"/>
+
+                <DatePicker x:Name="dpBirthday"
+                    FontSize="14"
+                    Width="180"
+                    Margin="10, 10, 0, 30"/>
+
+
+                <TextBlock Width="150" 
+                           Height="30" 
+                           FontSize="15"
+                           Text="Должность" 
+                           Margin="20, 10, 0, 30"
+                           FontFamily="Sitka Text"/>
+
+                <ComboBox x:Name="cmbRole"
+                     Height="35" 
+                     Width="180"
+                     FontSize="15"
+                     Margin="10, 10, 0, 30"
+                    />
+
+          
+        </WrapPanel>
+
+        <Button x:Name="btnAdd"
+                Width="180"
+                Height="30"
+                BorderBrush="{x:Null}" 
+                FontFamily="Sitka Text" 
+                FontSize="16" 
+                Content="Добавить" 
+                Background="#edead0" 
+                Margin="30"
+                Click="btnAdd_Click"/>
+
+    </StackPanel>
     </Grid>
 </Window>
