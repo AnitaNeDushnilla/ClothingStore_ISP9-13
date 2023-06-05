@@ -3,7 +3,7 @@
 3ИСП9-13 Бондаренко Анита и Сошникова Татьяна
 
 -- Обзыватель решений
-![image](https://user-images.githubusercontent.com/107804246/215417432-2f071c92-86ff-479b-916e-5155e33a6811.png)
+![image](https://github.com/AnitaNeDushnilla/ClothingStore_ISP9-13/assets/107804246/dc07a531-6197-4ff8-bd06-c6f22c503c04)
 
 -- Главное окно
 ![image](https://github.com/AnitaNeDushnilla/ClothingStore_ISP9-13/assets/107804246/f7873964-0f20-43ca-894b-0e0d86d11e80)
