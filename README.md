@@ -6,8 +6,8 @@
 ![image](https://user-images.githubusercontent.com/107804246/215417432-2f071c92-86ff-479b-916e-5155e33a6811.png)
 
 -- Главное окно
-![image](https://user-images.githubusercontent.com/107804246/215417840-24633636-fa24-4d9a-a7a8-9715a11e8daf.png)
+![image](https://github.com/AnitaNeDushnilla/ClothingStore_ISP9-13/assets/107804246/f7873964-0f20-43ca-894b-0e0d86d11e80)
 
 -- Окна авторизации и регистрации
-![image](https://user-images.githubusercontent.com/107804246/215418018-058baf93-3bf3-4bd2-af8f-5b5966ad86e1.png)
-![image](https://user-images.githubusercontent.com/107804246/215418115-2a2438c9-2ab3-4165-a16d-1ecc1894754a.png)
+![image](https://github.com/AnitaNeDushnilla/ClothingStore_ISP9-13/assets/107804246/2e8f1004-f0b5-4575-9f24-2fc9de48154a)
+![image](https://github.com/AnitaNeDushnilla/ClothingStore_ISP9-13/assets/107804246/68cef32a-93a3-4cc5-b074-8ac36f6b1e42)
