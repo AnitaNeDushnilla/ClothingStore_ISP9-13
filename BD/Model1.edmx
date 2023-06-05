@@ -7,9 +7,9 @@
     <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BonusCard">
           <Key>
-            <PropertyRef Name="IdClient" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="Number" Type="nchar" MaxLength="12" Nullable="false" />
         </EntityType>
@@ -30,7 +30,6 @@
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
@@ -124,15 +123,15 @@
           <Property Name="Birthday" Type="date" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Client_BonusCard1">
-          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+        <Association Name="FK_BonusCard_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="BonusCard" Type="Self.BonusCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BonusCard">
-              <PropertyRef Name="IdClient" />
-            </Principal>
-            <Dependent Role="Client">
+            <Principal Role="Client">
               <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonusCard">
+              <PropertyRef Name="IdClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -220,18 +219,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductSale_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="IdClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ProductSale_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
@@ -313,9 +300,9 @@
           <EntitySet Name="Storage" EntityType="Self.Storage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Client_BonusCard1" Association="Self.FK_Client_BonusCard1">
-            <End Role="BonusCard" EntitySet="BonusCard" />
+          <AssociationSet Name="FK_BonusCard_Client" Association="Self.FK_BonusCard_Client">
             <End Role="Client" EntitySet="Client" />
+            <End Role="BonusCard" EntitySet="BonusCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
             <End Role="User" EntitySet="User" />
@@ -344,10 +331,6 @@
           <AssociationSet Name="FK_Product_Size" Association="Self.FK_Product_Size">
             <End Role="Size" EntitySet="Size" />
             <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Client" Association="Self.FK_ProductSale_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
             <End Role="Product" EntitySet="Product" />
@@ -410,17 +393,13 @@
           <EntitySet Name="Storage" EntityType="Model.Storage" />
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
           <EntitySet Name="User" EntityType="Model.User" />
-          <AssociationSet Name="FK_Client_BonusCard1" Association="Model.FK_Client_BonusCard1">
-            <End Role="BonusCard" EntitySet="BonusCard" />
+          <AssociationSet Name="FK_BonusCard_Client" Association="Model.FK_BonusCard_Client">
             <End Role="Client" EntitySet="Client" />
+            <End Role="BonusCard" EntitySet="BonusCard" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_User" Association="Model.FK_Client_User">
             <End Role="User" EntitySet="User" />
             <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProductSale_Client" Association="Model.FK_ProductSale_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="ProductSale" EntitySet="ProductSale" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Color" Association="Model.FK_Product_Color">
             <End Role="Color" EntitySet="Color" />
@@ -472,12 +451,12 @@
         </ComplexType>
         <EntityType Name="BonusCard">
           <Key>
-            <PropertyRef Name="IdClient" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="Number" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="Model.FK_Client_BonusCard1" FromRole="BonusCard" ToRole="Client" />
+          <NavigationProperty Name="Client" Relationship="Model.FK_BonusCard_Client" FromRole="BonusCard" ToRole="Client" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -485,9 +464,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BonusCard" Relationship="Model.FK_Client_BonusCard1" FromRole="Client" ToRole="BonusCard" />
+          <NavigationProperty Name="BonusCard" Relationship="Model.FK_BonusCard_Client" FromRole="Client" ToRole="BonusCard" />
           <NavigationProperty Name="User" Relationship="Model.FK_Client_User" FromRole="Client" ToRole="User" />
-          <NavigationProperty Name="ProductSale" Relationship="Model.FK_ProductSale_Client" FromRole="Client" ToRole="ProductSale" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -500,7 +478,6 @@
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
@@ -557,7 +534,6 @@
           <Property Name="IdEmployee" Type="Int32" Nullable="false" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Client" Relationship="Model.FK_ProductSale_Client" FromRole="ProductSale" ToRole="Client" />
           <NavigationProperty Name="Product" Relationship="Model.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
         </EntityType>
         <EntityType Name="Role">
@@ -613,15 +589,15 @@
           <NavigationProperty Name="Employee" Relationship="Model.FK_Employee_User1" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="Gender" Relationship="Model.FK_User_Gender" FromRole="User" ToRole="Gender" />
         </EntityType>
-        <Association Name="FK_Client_BonusCard1">
-          <End Type="Model.BonusCard" Role="BonusCard" Multiplicity="1" />
-          <End Type="Model.Client" Role="Client" Multiplicity="0..1" />
+        <Association Name="FK_BonusCard_Client">
+          <End Type="Model.Client" Role="Client" Multiplicity="1" />
+          <End Type="Model.BonusCard" Role="BonusCard" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="BonusCard">
-              <PropertyRef Name="IdClient" />
-            </Principal>
-            <Dependent Role="Client">
+            <Principal Role="Client">
               <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BonusCard">
+              <PropertyRef Name="IdClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -634,18 +610,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProductSale_Client">
-          <End Type="Model.Client" Role="Client" Multiplicity="1" />
-          <End Type="Model.ProductSale" Role="ProductSale" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProductSale">
-              <PropertyRef Name="IdClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

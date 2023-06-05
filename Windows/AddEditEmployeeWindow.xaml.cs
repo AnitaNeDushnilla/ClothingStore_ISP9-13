@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ClothingStore_ISP9_13.BD;
 using ClothingStore_ISP9_13.Windows;
 using ClothingStore_ISP9_13.Classes;

@@ -39,6 +39,27 @@
             Grid.Column="1"/>
 
 
+        <WrapPanel Grid.Row="1"
+                   Grid.Column="1"
+                   HorizontalAlignment="Right"
+                   Margin="150 0">
+            
+            <TextBlock x:Name="TxtBasketCount"                     
+                       Text=""
+                       Margin="20 0"
+                       FontSize="23"
+                       FontFamily="Bahnschrift SemiBold"/>
+            <Button x:Name="BtnGoToBasket" 
+                       Background="White"
+                       Height="30"
+                       Width="30"   
+                       Click="BtnGoToBasket_Click">
+                <Image Source="/Pages/Basket.png"/>
+            </Button>
+        </WrapPanel>
+
+        
+
         <StackPanel Grid.Row="2" Grid.Column="0">
             <Button x:Name="btnEmployee"
                     Width="170"
@@ -75,7 +96,7 @@
                     Content="Отчеты"
                     FontSize="30" 
                     Background="#FF95C0B9"
-                    Click="btn_Click">
+                    Click="btnReports_Click">
             </Button>
 
         </StackPanel>
@@ -112,10 +133,25 @@
                             <TextBlock Text="{Binding Cost}"
                                        FontWeight="Bold"
                                        Margin="5 0 0 0"/>
-                            <Button x:Name="BtnMore" 
-                                    Content="Подробнее"
-                                    Margin="10 10 10 0"
-                                   Click="BtnMore_Click"/>
+
+                            <WrapPanel HorizontalAlignment="Center">
+                                <Button x:Name="BtnMore"
+                                    Height="30"
+                                    Width="30"
+                                    Margin="10 0"
+                                    Click="BtnMore_Click">
+                                    <Image Source="/Pages/Pen.jpg"/>
+                                </Button>
+
+                                <Button x:Name="BtnBasket" 
+                                    Background="White"
+                                    Height="30"
+                                    Width="30"   
+                                    Margin="10 0 "
+                                    Click="BtnBasket_Click">
+                                    <Image Source="/Pages/Basket.png"/>
+                                </Button>
+                            </WrapPanel>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -147,6 +183,5 @@
             />
         </WrapPanel>
         
-
     </Grid>
 </Page>

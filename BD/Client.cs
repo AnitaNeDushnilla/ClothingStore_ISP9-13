@@ -17,20 +17,14 @@ namespace ClothingStore_ISP9_13.BD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            this.ProductSale = new HashSet<ProductSale>();
+            this.BonusCard = new HashSet<BonusCard>();
         }
     
         public int Id { get; set; }
         public int IdUser { get; set; }
     
-        public virtual BonusCard BonusCard { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductSale> ProductSale { get; set; }
-
-        public static implicit operator Client(User v)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual ICollection<BonusCard> BonusCard { get; set; }
+        public virtual User User { get; set; }
     }
 }

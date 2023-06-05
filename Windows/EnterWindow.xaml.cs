@@ -31,10 +31,20 @@ namespace ClothingStore_ISP9_13.Windows
             InitializeComponent();
         }
 
+      
+
+        private void btnReg_Click(object sender, RoutedEventArgs e)
+        {
+            RegWindow regWindow = new RegWindow();
+            regWindow.Show();
+            this.Close();
+            
+        }
+
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
             var AuthUser = EFClass.Context.User.ToList()
-                .Where(i => i.Login == tbLogin.Text && i.Password == pbPass.Password).FirstOrDefault();
+               .Where(i => i.Login == tbLogin.Text && i.Password == pbPass.Password).FirstOrDefault();
 
 
             if (AuthUser != null)
@@ -75,17 +85,12 @@ namespace ClothingStore_ISP9_13.Windows
                 }
                 else
                 {
-                    // Client
-
-                    // сохраняем клиента
-                    UserDataClass.Client = AuthUser;
-
 
                     MainFrame.Navigate(new ProductPage());
                     this.Close();
 
                 }
-               
+
 
             }
             else
@@ -94,14 +99,6 @@ namespace ClothingStore_ISP9_13.Windows
             }
 
 
-        }
-
-        private void btnReg_Click(object sender, RoutedEventArgs e)
-        {
-            RegWindow regWindow = new RegWindow();
-            regWindow.Show();
-            this.Close();
-            
         }
     }
 }

@@ -49,7 +49,7 @@ namespace ClothingStore_ISP9_13.Pages
         {
            AddEditEmployeeWindow addEditEmployeeWindow = new AddEditEmployeeWindow();
             addEditEmployeeWindow.ShowDialog();
-
+            ListEmployee();
         }
 
         private void LvEmployee_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -59,6 +59,7 @@ namespace ClothingStore_ISP9_13.Pages
 
             AddEditEmployeeWindow addEditEmployeeWindow = new AddEditEmployeeWindow(selectedEmp);
             addEditEmployeeWindow.ShowDialog();
+            ListEmployee();
         }
     }
 }

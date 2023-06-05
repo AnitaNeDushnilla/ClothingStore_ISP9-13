@@ -124,9 +124,14 @@
     <Compile Include="BD\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\BasketClass.cs" />
     <Compile Include="Classes\EFClass.cs" />
     <Compile Include="Classes\NavigationClass.cs" />
+    <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\UserDataClass.cs" />
+    <Compile Include="Pages\BasketPage.xaml.cs">
+      <DependentUpon>BasketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EmployeePage.xaml.cs">
       <DependentUpon>EmployeePage.xaml</DependentUpon>
     </Compile>
@@ -151,6 +156,10 @@
     <Compile Include="Windows\RegWindow.xaml.cs">
       <DependentUpon>RegWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\BasketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +260,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\Trash.png" />
+    <Resource Include="Pages\Pen.jpg" />
+    <Resource Include="Pages\Basket.png" />
     <Resource Include="Pages\wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>

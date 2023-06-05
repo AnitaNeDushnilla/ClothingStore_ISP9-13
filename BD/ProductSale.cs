@@ -20,7 +20,6 @@ namespace ClothingStore_ISP9_13.BD
         public int IdClient { get; set; }
         public System.DateTime SaleDate { get; set; }
     
-        public virtual Client Client { get; set; }
         public virtual Product Product { get; set; }
     }
 }

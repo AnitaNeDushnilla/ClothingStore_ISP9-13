@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClothingStore_ISP9_13.BD;
+using ClothingStore_ISP9_13.Classes;
 using ClothingStore_ISP9_13.Windows;
 using static ClothingStore_ISP9_13.Classes.NavigationClass;
 
@@ -30,15 +31,21 @@ namespace ClothingStore_ISP9_13.Pages
             InitializeComponent();
 
             ListProduct();
+            GetCountCartProduct();
+           
+        }
+       public void GetCountCartProduct()
+        {
+            TxtBasketCount.Text = BasketClass.products.Count.ToString();
         }
 
-
-        private void ListProduct()
+        public void ListProduct()
         {
             List<Product> products = new List<Product>();
-            products = Classes.EFClass.Context.Product.ToList();
+            products = EFClass.Context.Product.ToList();
 
             LvProduct.ItemsSource = products;
+            GetCountCartProduct();
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -47,6 +54,7 @@ namespace ClothingStore_ISP9_13.Pages
             addEditProduct.ShowDialog();
 
             ListProduct();
+            GetCountCartProduct();
         }
 
         private void BtnMore_Click(object sender, RoutedEventArgs e)
@@ -63,6 +71,7 @@ namespace ClothingStore_ISP9_13.Pages
             addEditProductWindow.ShowDialog();
 
             ListProduct();
+            GetCountCartProduct();
 
         }
 
@@ -76,14 +85,35 @@ namespace ClothingStore_ISP9_13.Pages
 
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
+        private void BtnBasket_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            Product selectedProduct = button.DataContext as Product;
+
+            BasketClass.products.Add(selectedProduct);
+
+            GetCountCartProduct();
+        }
+
+        private void btnReports_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnGoToBasket_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new BasketPage());
+            GetCountCartProduct();
         }
     }
 }
